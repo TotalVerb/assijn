@@ -1,0 +1,54 @@
+body {
+    background-color: antiquewhite;
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    padding: 0 3em;
+}
+
+h1 {
+    border-bottom: 1px solid black;
+}
+
+.assets, .liabilities {
+    display: inline-block;
+    width: 50%;
+    box-sizing: border-box;
+
+    h1 {
+        text-align: center;
+        border-bottom: none;
+    }
+}
+
+.chief {
+    font-weight: bold;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 1em;
+}
+
+tr {
+    width: 100%;
+    font-family: monospace;
+    font-size: 1.2em;
+
+    td:nth-child(2) {
+        text-align: right;
+    }
+}
+
+tr.total {
+    td:nth-child(1) {
+        font-weight: bold;
+    }
+    td:nth-child(2) {
+        border-bottom: 3px double black;
+    }
+}
