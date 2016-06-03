@@ -1,4 +1,5 @@
 using Base.REPL
+using Base.Markdown
 
 print("""
 
@@ -20,6 +21,29 @@ function print_correction(io, word)
     println(io, ".")
 end
 
+# help (inline for now)
+assijn_help = md"""
+Currently this command-line UI is mostly useless. The only real functionality is
+the `rebuild` command, which rebuilds the client-side features using Gulp.
+
+To run a Julia command, type `]`, then the Julia command. If you want to quit
+the program, send an EOF (end of file) with Ctrl-D.
+"""
+
+# commands available
+function help()
+    display(assijn_help)
+end
+
+function help(cmd)
+end
+
+function rebuild()
+    print_with_color(:blue, "INFO: Rerunning Gulp...\n")
+    run(bs)
+    println()
+end
+
 while true
     print_with_color(:green, "assijn> ")
     input = readline()
@@ -30,17 +54,12 @@ while true
     end
 
     if input == "help"
-        println("""
-        Currently this command-line UI is mostly useless.
-
-        To run a Julia command, type ], then the Julia command.
-
-        If you want to quit the program, send an EOF (end of file) with Ctrl-D.
-        """)
+        help()
     elseif input == "rebuild"
-        print_with_color(:blue, "INFO: Rerunning Gulp...\n")
-        run(bs)
-        println()
+        rebuild()
+    elseif input == "quit"
+        println("Exiting ASSIJN. Thanks for trying our product!")
+        break
     elseif input[1] == ']'
         try
             println(eval(parse(input[2:end])))

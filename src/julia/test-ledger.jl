@@ -26,7 +26,7 @@ transfer!(ledger, Date(2015, 12, 03), bankloan, cash, 2000USD)
 transfer!(ledger, Date(2015, 12, 04), cash, rent, 50CAD)
 
 for i in 5:10
-    sale = rand(10CAD:20CAD)
+    sale = rand(10CAD:0.01CAD:20CAD)
     itemcost = valuate(Dict(:CAD => 0.7, :USD => 1.0), :USD, sale)
     transfer!(ledger, Date(2015, 12, i), inventory, cogs, itemcost)
     transfer!(ledger, Date(2015, 12, i), sales, cash, sale)

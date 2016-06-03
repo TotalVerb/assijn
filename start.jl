@@ -12,7 +12,7 @@ VERSION = v"0.0.0"
 DATE = Date(2015, 12, 11)
 
 # execute build script
-println("Hey! We’re going to be booting up ASSIJN.")
+println("Hey! We’re booting up ASSIJN. Thank you for trying our product!")
 println("It might take some time, so please be patient.")
 println()
 print_header("Executing Build Script")

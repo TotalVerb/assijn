@@ -1,4 +1,4 @@
-# ASSIJN Accounting Software
+#= ASSIJN Accounting Software =#
 
 using Currencies
 using Accounting
@@ -28,7 +28,7 @@ end
 
 function servebalancesheet(req)
     s = if haskey(req[:params], :cur)
-        valuate(ecbrates(), symbol(req[:params][:cur]), balancesheet(ledger))
+        valuate(ecbrates(), Symbol(req[:params][:cur]), balancesheet(ledger))
     else balancesheet(ledger) end
 
     Dict(
